@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         var array=new Array();
+         var str=" "
+        array=[{nm:" ",add:"  ",hobb:"  "}]
+    function addobj(event){
+        event.preventDefault();
+        var name=document.getElementById("nm").value;
+        var address=document.getElementById("add").value;
+        var hobbies=document.getElementById("hobb").value;
+        if(name.length>6){
+        alert("name should be less than 6 characters")
+        return;
+       }
+        var news={nm:name,add:address,hobb:hobbies};
+        array.push(news);
+      
+        //document.getElementById("repo").innerHTML=JSON.stringify(array);
+    } 
+ 
+    function displayobj(){
+        document.body.style.backgroundColor = "red";
+        for(var i=0;i<array.length;i++){
+           str=str+(array[i].nm+" "+array[i].add+" "+array[i].hobb+"</br>");
+       
+
+        }
+        document.getElementById("repo").innerHTML =str;
+    }
+    </script>
+</head>
+<body style="background-Color:skyblue";>
+    <form >
+    <label for="name">Name:</label>
+    <input type="text" name="nm" id="nm" onfocus="this.style.backgroundColor='yellow'" onblur="this.style.backgroundColor='white'"max="6"><br><br><br>
+    <label for="add">Address:</label>
+    <input type="text" name="add" id="add"><br><br><br>
+    <label for="hobbies">Hobbies:</label>
+    <input type="text" name="hobb" id="hobb"><br><br><br>
+    <button type="submit" name="btn" id="btn" onclick="addobj(event)">Add Object</button>&nbsp&nbsp
+    <button type="button" name="btn1" id="btn1" onclick="displayobj() ">Display Object</button>
+    <div id="repo"></div>
+
+    </form>
+    
+</body>
+</html>
